@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <style>
+      /* Reset default margin and padding */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Style for the form container */
+      .Content__FormContainer-sc-3sh3bs-0 {
+        max-width: 500px; /* Adjust the width as needed */
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd; /* Add border */
+        border-radius: 5px; /* Add border radius */
+      }
+
+      /* Style for form fields */
+      .FormFieldLayout__Label-sc-1m85c11-0 {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .TextControlBase__TextControlBaseContainer-sc-1s66zih-0 {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .TextControlBase__TextControlBaseInput-sc-1s66zih-4,
+      .TextControlBase__TextControlBaseTextarea-sc-1s66zih-5 {
+        width: calc(100% - 30px);
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 15px;
+        line-height: 20px;
+        background-color: #fff;
+      }
+
+      /* Style for the submit button */
+      .ButtonBase__ButtonContainer-sc-p43e7i-3 {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .ButtonBase__ButtonContainer-sc-p43e7i-3:hover {
+        background-color: #0056b3;
+      }
+    </style> -->
+    <style>
+      /* Reset default margin, padding, and font */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Style for the form container */
+      .Content__FormContainer-sc-3sh3bs-0 {
+        max-width: 500px; /* Adjust the width as needed */
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd; /* Add border */
+        border-radius: 5px; /* Add border radius */
+        background-color: #f9f9f9; /* Add background color */
+      }
+
+      /* Style for form fields */
+      .FormFieldLayout__Label-sc-1m85c11-0 {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold; /* Make labels bold */
+        color: #333; /* Darken label color */
+      }
+
+      .TextControlBase__TextControlBaseContainer-sc-1s66zih-0 {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .TextControlBase__TextControlBaseInput-sc-1s66zih-4,
+      .TextControlBase__TextControlBaseTextarea-sc-1s66zih-5 {
+        width: calc(100% - 30px);
+        padding: 10px 15px;
+        border: 1px solid #ccc; /* Lighten border color */
+        border-radius: 4px;
+        font-size: 15px;
+        line-height: 20px;
+        background-color: #fff;
+        transition: border-color 0.3s ease; /* Add transition for border color */
+      }
+
+      .TextControlBase__TextControlBaseInput-sc-1s66zih-4:focus,
+      .TextControlBase__TextControlBaseTextarea-sc-1s66zih-5:focus {
+        border-color: #007bff; /* Change border color on focus */
+      }
+
+      /* Style for the submit button */
+      .ButtonBase__ButtonContainer-sc-p43e7i-3 {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .ButtonBase__ButtonContainer-sc-p43e7i-3:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Preview__Container-sc-1jggitl-0 ilHaSz">
+      <div
+        id="eapps-form-builder-7e7fafb1-6781-4272-a865-3ac3ed1cb0a3"
+        class="RootLayout__RootComponent-sc-1doisyz-0 iGDhJF eapps-form-builder-7e7fafb1-6781-4272-a865-3ac3ed1cb0a3-custom-css-hook"
+        data-app="eapps-form-builder"
+        data-app-version="1.25.2"
+      >
+        <div class="Content__WidgetContainer-sc-3sh3bs-2 fAkRjt">
+          <div
+            class="WidgetBackground__Container-sc-1ho7q3r-0 iczPsf"
+            style="
+              min-height: 100%;
+              box-shadow: none;
+              border-radius: 0px;
+              padding: 0px;
+            "
+          >
+            <div class="Background__Container-sc-4lq1r6-0 itZoLS">
+              <div
+                class="Background__Base-sc-4lq1r6-1 egiTHk"
+                style="
+                  display: block;
+                  background-color: transparent;
+                  border-radius: 0px;
+                "
+              ></div>
+              <div
+                class="Background__Overlay-sc-4lq1r6-2 djWGwD"
+                style="display: block; background-color: rgba(255, 255, 255, 0)"
+              ></div>
+            </div>
+            <div class="WidgetBackground__ContentContainer-sc-1ho7q3r-1 jUKeJm">
+              <div class="WidgetBackground__Content-sc-1ho7q3r-2 jdVdAT">
+                <div class="Content__FormContainer-sc-3sh3bs-0 zBbTw">
+                  <div class="WidgetTitle__Container-sc-ruy1gu-0 dpUiwJ">
+                    <div class="WidgetTitle__Inner-sc-ruy1gu-1 SZtf">
+                      <div class="WidgetTitle__Header-sc-ruy1gu-2 coQfSf">
+                        Reort
+                      </div>
+                      <div class="WidgetTitle__Caption-sc-ruy1gu-3 bKWjeO">
+                        Please fill in the form to email us your concerns or
+                        queries.
+                      </div>
+                    </div>
+                  </div>
+                  <form class="FormLayout__Container-sc-2kg2eg-0 iNyYeg">
+                    <div class="FieldsGrid__Grid-sc-1luipcv-0 hCmtez">
+                      <div class="FieldsGrid__Row-sc-1luipcv-1 gRPRAW">
+                        <div
+                          class="FormFieldLayout__Container-sc-1m85c11-3 cDIlcj"
+                        >
+                          <label
+                            for="P8MNzH3u"
+                            class="FormFieldLayout__Label-sc-1m85c11-0 eJtSxb"
+                            >Email Address
+                          </label>
+                          <div
+                            class="TextControlBase__TextControlBaseContainer-sc-1s66zih-0 bBKQWp FieldContainer__FieldLayout-sc-gwguj-0 jrogik"
+                            style="
+                              padding: 10px 15px;
+                              border-width: 1px;
+                              border-radius: 4px;
+                              font-style: normal;
+                              font-weight: normal;
+                              font-size: 15px;
+                              line-height: 20px;
+                              border-color: rgba(17, 17, 17, 0.2);
+                              background: transparent;
+                              color: rgb(17, 17, 17);
+                              opacity: 1;
+                            "
+                          >
+                            <div
+                              class="TextControlBase__TextControlBaseInner-sc-1s66zih-1 cjvHgB"
+                            >
+                              <div
+                                class="TextControlBase__TextControlBaseInputWrapper-sc-1s66zih-3 ckjMpy"
+                                style="opacity: 1; transform: none"
+                              >
+                                <div
+                                  class="TextControlBase__TextControlBasePlaceholder-sc-1s66zih-8 CWjVC"
+                                  style="
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    color: rgba(17, 17, 17, 0.45);
+                                  "
+                                >
+                                  Enter your email
+                                </div>
+                                <input
+                                  id="P8MNzH3u"
+                                  aria-required="false"
+                                  placeholder="Enter your email"
+                                  type="email"
+                                  autocomplete="off"
+                                  class="TextControlBase__TextControlBaseInput-sc-1s66zih-4 kUNKkJ"
+                                  value=""
+                                  fdprocessedid="ad73o9"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="FieldsGrid__Row-sc-1luipcv-1 gRPRAW">
+                        <div
+                          class="FormFieldLayout__Container-sc-1m85c11-3 cDIlcj"
+                        >
+                          <label
+                            for="zntUkPDX"
+                            class="FormFieldLayout__Label-sc-1m85c11-0 eJtSxb"
+                            >Subject
+                          </label>
+                          <div
+                            class="TextControlBase__TextControlBaseContainer-sc-1s66zih-0 bBKQWp FieldContainer__FieldLayout-sc-gwguj-0 jrogik"
+                            style="
+                              padding: 10px 15px;
+                              border-width: 1px;
+                              border-radius: 4px;
+                              font-style: normal;
+                              font-weight: normal;
+                              font-size: 15px;
+                              line-height: 20px;
+                              border-color: rgba(17, 17, 17, 0.2);
+                              background: transparent;
+                              color: rgb(17, 17, 17);
+                              opacity: 1;
+                            "
+                          >
+                            <div
+                              class="TextControlBase__TextControlBaseInner-sc-1s66zih-1 cjvHgB"
+                            >
+                              <div
+                                class="TextControlBase__TextControlBaseInputWrapper-sc-1s66zih-3 ckjMpy"
+                                style="opacity: 1; transform: none"
+                              >
+                                <div
+                                  class="TextControlBase__TextControlBasePlaceholder-sc-1s66zih-8 CWjVC"
+                                  style="
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    color: rgba(17, 17, 17, 0.45);
+                                  "
+                                >
+                                  Subject of your message
+                                </div>
+                                <input
+                                  id="zntUkPDX"
+                                  aria-required="false"
+                                  placeholder="Subject of your message"
+                                  type="shortText"
+                                  autocomplete="off"
+                                  class="TextControlBase__TextControlBaseInput-sc-1s66zih-4 kUNKkJ"
+                                  value=""
+                                  fdprocessedid="kzyi5u"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="FieldsGrid__Row-sc-1luipcv-1 gRPRAW">
+                        <div
+                          class="FormFieldLayout__Container-sc-1m85c11-3 cDIlcj"
+                        >
+                          <label
+                            for="L4aA6gWy"
+                            class="FormFieldLayout__Label-sc-1m85c11-0 eJtSxb"
+                            >Message
+                          </label>
+                          <div
+                            class="TextControlBase__TextControlBaseContainer-sc-1s66zih-0 bBKQWp LongText__LongTextControl-sc-j1m0eb-0 cFjkpg FieldContainer__FieldLayout-sc-gwguj-0 jrogik"
+                            style="
+                              padding: 10px 15px;
+                              border-width: 1px;
+                              border-radius: 4px;
+                              font-style: normal;
+                              font-weight: normal;
+                              font-size: 15px;
+                              line-height: 20px;
+                              border-color: rgba(17, 17, 17, 0.2);
+                              background: transparent;
+                              color: rgb(17, 17, 17);
+                              opacity: 1;
+                            "
+                          >
+                            <div
+                              class="TextControlBase__TextControlBaseInner-sc-1s66zih-1 cjvHgB"
+                            >
+                              <div
+                                class="TextControlBase__TextControlBaseInputWrapper-sc-1s66zih-3 ckjMpy"
+                                style="opacity: 1; transform: none"
+                              >
+                                <div
+                                  class="TextControlBase__TextControlBasePlaceholder-sc-1s66zih-8 CWjVC"
+                                  style="
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    color: rgba(17, 17, 17, 0.45);
+                                  "
+                                >
+                                  Type your message here
+                                </div>
+                                <textarea
+                                  id="L4aA6gWy"
+                                  aria-required="false"
+                                  placeholder="Type your message here"
+                                  class="TextControlBase__TextControlBaseTextarea-sc-1s66zih-5 dhljti"
+                                  style="height: 60px !important"
+                                ></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="FieldsGrid__Row-sc-1luipcv-1 gRPRAW">
+                        <div
+                          class="FormFieldLayout__Container-sc-1m85c11-3 iZShRb"
+                        >
+                          <label
+                            for="eyYcHgNu"
+                            class="FormFieldLayout__Label-sc-1m85c11-0 eJtSxb"
+                            >Attach Files
+                          </label>
+                          <div class="File__Hint-sc-1txm6db-1 fbyVYY">
+                            Attach any relevant documents or images
+                          </div>
+                          <div class="File__Container-sc-1txm6db-2 bYMCsK">
+                            <div class="File__DropArea-sc-1txm6db-5 cCqHju">
+                              <input
+                                id="eyYcHgNu"
+                                title=""
+                                type="file"
+                                name="Attach Files "
+                                multiple=""
+                                aria-required="false"
+                                class="File__Input-sc-1txm6db-6 jMddqF"
+                              />
+                              <div
+                                class="File__Text-sc-1txm6db-3 File__Link-sc-1txm6db-4 gHrZQR jyBCWm"
+                              >
+                                Choose file
+                              </div>
+                              <div class="File__Text-sc-1txm6db-3 hOEHkZ">
+                                or drop here
+                              </div>
+                            </div>
+                            <div></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="FieldsGrid__Row-sc-1luipcv-1 gRPRAW">
+                        <div
+                          class="FormFieldLayout__Container-sc-1m85c11-3 cDIlcj"
+                        >
+                          <div
+                            class="Choice__OptionsContainer-sc-ssh0l1-2 Lqufs"
+                            style="
+                              font-size: 15px;
+                              font-weight: normal;
+                              font-style: normal;
+                              color: rgb(17, 17, 17);
+                              grid-template-columns: 100%;
+                            "
+                          >
+                            <label
+                              class="ChoiceOption__Label-sc-tsji91-0 euxDiJ"
+                              ><input
+                                id="consent"
+                                type="checkbox"
+                                name="dznq6M0x"
+                                class="ChoiceOption__Input-sc-tsji91-7 kMYdxf"
+                                value="I agree to the terms and conditions."
+                              />
+                              <div
+                                class="ChoiceOption__Container-sc-tsji91-1 hYYZac"
+                              >
+                                <div
+                                  class="ChoiceOption__Item-sc-tsji91-4 ChoiceOption__ChoiceControl-sc-tsji91-6 brmRSH iHycBz"
+                                >
+                                 
+                                  </svg>
+                                </div>
+                                <div
+                                  class="ChoiceOption__Overlay-sc-tsji91-2 lmxcmw"
+                                  style="background-color: rgb(17, 17, 17)"
+                                ></div>
+                              </div>
+                              <div
+                                class="ChoiceOption__ItemLabel-sc-tsji91-3 gQUKSQ"
+                                style="
+                                  font-size: 15px;
+                                  line-height: 24px;
+                                  margin-left: 8px;
+                                "
+                              >
+                                I agree to the terms and conditions.
+                              </div></label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="FieldsGrid__ButtonsGroup-sc-1luipcv-2 kBaLmY">
+                      <button
+                        size="15"
+                        aria-label="Send Email"
+                        type="button"
+                        tabindex="0"
+                        class="ButtonBase__ButtonContainer-sc-p43e7i-3 euBiGU"
+                        style="
+                          border-radius: 4px;
+                          border-color: rgba(0, 0, 0, 0);
+                          color: rgb(255, 255, 255);
+                          font-family: inherit;
+                          font-weight: bold;
+                          font-size: 15px;
+                          font-style: normal;
+                          background-color: rgb(0, 123, 255);
+                          border-width: 2px;
+                        "
+                        fdprocessedid="bg3ai4"
+                      >
+                        <span
+                          class="ButtonBase__Overlay-sc-p43e7i-4 cjTloD"
+                          style="
+                            padding: 8px 21px;
+                            border-radius: calc(2px);
+                            background-color: rgba(0, 0, 0, 0);
+                          "
+                          ><span class="ButtonBase__Ellipsis-sc-p43e7i-5 dqiKFy"
+                            >Send Email</span
+                          ></span
+                        >
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

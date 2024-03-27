@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .flex {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .mb-6 {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        font-size: 0.875rem;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        background-color: #18191e;
+        border: 1px solid #33353f;
+        color: #9ca2a9;
+        padding: 10px;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.875rem;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      @media screen and (max-width: 600px) {
+        input[type="text"],
+        input[type="email"],
+        textarea {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Contact Us</h1>
+      <form id="contactForm" class="flex">
+        <div class="mb-6">
+          <label for="name">Your Name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="John"
+            name="name"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label for="email">Your Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="jacob@google.com"
+            name="email"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label for="subject">Subject</label>
+          <input
+            id="subject"
+            type="text"
+            placeholder="Just saying hi"
+            name="subject"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            rows="5"
+            cols="5"
+            name="message"
+            placeholder="Let's talk about..."
+            required
+          ></textarea>
+        </div>
+        <button id="submitButton" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="container contact-info-container">
+      <img
+        src="./assets/email.png"
+        alt="Email icon"
+        class="icon contact-icon email-icon"
+      />
+      <p>
+        <a href="mailto:parimellanikhil2000@gmail.com"
+          >parimellanikhil550@gmail.com</a
+        >
+      </p>
+    </div>
+
+    <!-- <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const formData = new FormData(this);
+          const formDataJSON = {};
+          formData.forEach(function (value, key) {
+            formDataJSON[key] = value;
+          });
+          console.log(formDataJSON);
+          // You can send the form data to a server using Fetch API or AJAX
+          this.reset();
+        });
+    </script> -->
+
+    <script>
+      document
+        .getElementById("dailyReportForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const reportData = {};
+          formData.forEach(function (value, key) {
+            reportData[key] = value;
+          });
+
+          // Compose email subject and body
+          const subject = "Daily Report";
+          let body = "Activities: " + reportData.activities + "%0D%0A";
+          body +=
+            "Challenges Faced: " + (reportData.challenges || "None") + "%0D%0A";
+          body += "Plans for Tomorrow: " + (reportData.plans || "None");
+
+          // Construct mailto link
+          const mailtoLink =
+            "mailto:parimellanikhil71@gmail.com?subject=" +
+            encodeURIComponent(subject) +
+            "&body=" +
+            encodeURIComponent(body);
+
+          // Open default email client
+          window.location.href = mailtoLink;
+
+          // Reset the form
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

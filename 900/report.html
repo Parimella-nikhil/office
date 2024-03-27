@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Report</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        height: 100px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Daily Report</h2>
+      <form id="dailyReportForm">
+        <div>
+          <label for="activities">Activities:</label>
+          <textarea
+            id="activities"
+            name="activities"
+            placeholder="Enter your activities for today..."
+            required
+          ></textarea>
+        </div>
+        <div>
+          <label for="challenges">Challenges Faced:</label>
+          <textarea
+            id="challenges"
+            name="challenges"
+            placeholder="Enter any challenges faced today..."
+          ></textarea>
+        </div>
+        <div>
+          <label for="plans">Plans for Tomorrow:</label>
+          <textarea
+            id="plans"
+            name="plans"
+            placeholder="Enter your plans for tomorrow..."
+          ></textarea>
+        </div>
+        <div class="FormFieldLayout__Container-sc-1m85c11-3 iZShRb">
+          <label
+            for="eyYcHgNu"
+            class="FormFieldLayout__Label-sc-1m85c11-0 eJtSxb"
+            >Attach Files
+          </label>
+          <div class="File__Hint-sc-1txm6db-1 fbyVYY">
+            Attach any relevant documents or images
+          </div>
+          <div class="File__Container-sc-1txm6db-2 bYMCsK">
+            <div class="File__DropArea-sc-1txm6db-5 cCqHju">
+              <input
+                id="eyYcHgNu"
+                title=""
+                type="file"
+                name="Attach Files "
+                multiple=""
+                aria-required="false"
+                class="File__Input-sc-1txm6db-6 jMddqF"
+              />
+              <div
+                class="File__Text-sc-1txm6db-3 File__Link-sc-1txm6db-4 gHrZQR jyBCWm"
+              >
+                Choose file
+              </div>
+              <div class="File__Text-sc-1txm6db-3 hOEHkZ">or drop here</div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("dailyReportForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const reportData = {};
+          formData.forEach(function (value, key) {
+            reportData[key] = value;
+          });
+
+          // Compose email subject and body
+          const subject = "Daily Report";
+          let body = "Activities: " + reportData.activities + "%0D%0A";
+          body +=
+            "Challenges Faced: " + (reportData.challenges || "None") + "%0D%0A";
+          body += "Plans for Tomorrow: " + (reportData.plans || "None");
+
+          // Construct mailto link
+          const mailtoLink =
+            "mailto:pranayjava05@gmail.com?subject=" +
+            encodeURIComponent(subject) +
+            "&body=" +
+            encodeURIComponent(body);
+
+          // Open default email client
+          window.location.href = mailtoLink;
+
+          // Reset the form
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

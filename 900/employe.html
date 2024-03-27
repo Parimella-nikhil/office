@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employees Details List</title>
+    <link
+      rel="icon"
+      href="https://tse1.mm.bing.net/th?id=OIP.COXthUx_xkRKtHYDeDn8kgHaE8&pid=Api&P=0&h=180"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      /* Basic styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+      }
+
+      .container {
+        width: 95%;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      /* Header styles */
+      header {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #333;
+        color: #fff;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      /* Filter styles */
+      .filterEntries {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .filterEntries .entries,
+      .filterEntries .filter {
+        flex: 1;
+        margin-right: 10px;
+      }
+
+      .filterEntries label {
+        margin-right: 5px;
+      }
+
+      .filterEntries input[type="search"] {
+        width: 150px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .addMemberBtn {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .addMemberBtn button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Table styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th:first-child,
+      td:first-child {
+        min-width: 60px;
+      }
+
+      th:last-child,
+      td:last-child {
+        min-width: 100px;
+        text-align: center;
+      }
+
+      /* Footer styles */
+      footer {
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          width: 90%;
+        }
+
+        .filterEntries {
+          flex-direction: column;
+        }
+
+        .filterEntries .entries,
+        .filterEntries .filter {
+          width: 100%;
+          margin: 10px 0;
+        }
+
+        .filterEntries input[type="search"] {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Employees Details List</h1>
+      </header>
+
+      <div class="filterEntries">
+        <div class="entries">
+          Show
+          <select name="" id="table_size">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          entries
+        </div>
+
+        <div class="filter">
+          <label for="search">Search:</label>
+          <input
+            type="search"
+            name=""
+            id="search"
+            placeholder="Enter name/city/post"
+          />
+        </div>
+      </div>
+
+      <div class="addMemberBtn">
+        <button>Add New Employee Details</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr class="heading">
+            <th>SL No</th>
+            <th>Picture</th>
+            <th>Full Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Position</th>
+            <th>Salary</th>
+            <th>Start Date</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody class="userInfo">
+          <!-- Table body content -->
+        </tbody>
+      </table>
+
+      <footer>
+        <span class="showEntries">Showing 1 to 10 of 50 entries</span>
+        <div class="pagination">
+          <!-- Pagination buttons -->
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

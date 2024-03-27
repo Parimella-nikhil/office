@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Font Awesome CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Employees Details List</title>
+    <link
+      rel="icon"
+      href="https://tse1.mm.bing.net/th?id=OIP.COXthUx_xkRKtHYDeDn8kgHaE8&pid=Api&P=0&h=180"
+    />
+    <!-- 
+     -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Poppins:wght@100;200;300;400&display=swap");
+
+      :root {
+        /* --dark1: rgb(172, 20, 20); */
+        --dark2: rgb(233, 230, 230);
+        --dark3: rgb(233, 230, 230);
+        /* --dark4: rgb(20, 15, 15); */
+        --dark5: rgb(233, 230, 230);
+        --dark6: rgb(249, 254, 250);
+        --dark7: rgb(12, 11, 11);
+        --dark8: rgb(15, 12, 12);
+        --dark9: none;
+        --red1: rgb(183, 165, 165);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+
+        /* background: linear-gradient(var(--red1) 50%, var(--dark2) 50%); */
+        background: hsl(225, 20%, 96%);
+      }
+
+      .container {
+        padding: 20px;
+        box-shadow: 3px 3px 20px var(--dark1);
+        background: var(--dark3);
+        border-radius: 10px;
+        margin: 10px;
+        margin-top: 50px;
+      }
+
+      .container header .filterEntries {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .filterEntries .entries {
+        color: var(--dark8);
+        background: rgb(208, 205, 205);
+        padding: 5px;
+        border-radius: 3px;
+      }
+
+      .filterEntries .entries select,
+      .filterEntries .filter input {
+        padding: 7px 10px;
+        border: 1px solid var(--dark6);
+        /* color: var(--dark8); */
+        /* background: var(--dark4); */
+        border-radius: 5px;
+        outline: none;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .filterEntries .entries select {
+        padding: 5px 10px;
+      }
+
+      .filterEntries .filter {
+        display: flex;
+        align-items: center;
+      }
+
+      .filter label {
+        color: var(--dark8);
+        margin-right: 5px;
+      }
+
+      .filter input:focus {
+        border-color: var(--dark7);
+      }
+
+      .container header .addMemberBtn {
+        margin-bottom: 15px;
+      }
+
+      header .addMemberBtn button,
+      .popup header .closeBtn,
+      .popup footer .submitBtn {
+        padding: 9px 14px;
+        /* color: var(--dark8); */
+        /* background: transparent; */
+        font-size: 16px;
+        cursor: pointer;
+        pointer-events: auto;
+        outline: none;
+        border: 1px solid var(--dark6);
+        /* background: var(--dark4); */
+        background: rgb(9, 9, 23);
+        color: white;
+        border-radius: 5px;
+      }
+
+      .addMemberBtn button:hover {
+        background: var(--dark5);
+      }
+
+      .container table {
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      table .heading {
+        background: var(--dark5);
+        background: transparent;
+        color: var(--dark8);
+      }
+
+      table .heading th:hover {
+        background: var(--dark4);
+        transition: 0.3s;
+      }
+
+      table tr th,
+      table tr td {
+        padding: 3px 15px;
+        color: var(--dark8);
+        vertical-align: middle;
+      }
+
+      table tr th {
+        padding: 12px 15px;
+      }
+
+      table tr td:nth-child(1),
+      table tr td:nth-child(2) {
+        text-align: center;
+      }
+
+      table tr td img {
+        vertical-align: middle;
+      }
+      table tr:hover {
+        cursor: pointer;
+        background: var(--dark9);
+      }
+
+      table tr td {
+        border-bottom: 1px solid var(--dark6);
+      }
+
+      table tbody tr:first-child td {
+        border-top: 1px solid var(--dark6);
+      }
+
+      table tbody tr:nth-child(odd) {
+        background: var(--dark9);
+      }
+
+      table tbody tr:nth-child(odd) > td:nth-child(3) {
+        background: var(--dark4);
+      }
+
+      table tr td {
+        font-size: 15px;
+      }
+
+      table td button {
+        margin: 0 3px;
+        padding: 5px;
+        width: 35px;
+        background: var(--dark5);
+        color: var(--dark8);
+        font-size: 16px;
+        cursor: pointer;
+        pointer-events: auto;
+        outline: none;
+        border: 1px solid var(--dark7);
+      }
+
+      .container footer {
+        margin-top: 25px;
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .container footer span {
+        color: var(--dark8);
+      }
+
+      footer .pagination {
+        display: flex;
+      }
+
+      footer .pagination button {
+        width: 40px;
+        padding: 5px 0;
+        color: var(--dark8);
+        background: transparent;
+        font-size: 16px;
+        cursor: pointer;
+        pointer-events: auto;
+        outline: none;
+        border: 1px solid var(--dark6);
+        border-left: none;
+        margin: 0;
+      }
+
+      .pagination button:first-child {
+        width: 85px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-left: 1px solid var(--dark6);
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .pagination button:last-child {
+        width: 85px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .pagination button.active,
+      .pagination button:hover {
+        background: var(--red1);
+      }
+
+      .pagination button.act:first-child {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .pagination button.act:last-child {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      table tr .empty {
+        padding: 6px;
+        background: var(--dark9);
+      }
+
+      /* Popup Form */
+
+      .dark_bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(238, 235, 235, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .popup {
+        border-radius: 5px;
+        /* box-shadow: 3px 3px 20px rgba(208, 204, 204, 0.3); */
+        background: var(--dark6);
+        transition: 0.4s;
+        user-select: none;
+        transform: scale(0.7);
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .popup header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--dark7);
+        padding: 10px 20px;
+      }
+
+      .popup header .closeBtn {
+        font-size: 30px;
+        font-weight: 300;
+        padding: 0 15px;
+      }
+
+      .popup header .closeBtn:hover,
+      .popup footer .submitBtn:hover {
+        border-color: var(--dark7);
+        transition: 0.3s;
+      }
+
+      .popup footer {
+        border-top: 1px solid var(--dark7);
+        padding: 12px 20px;
+        text-align: right;
+      }
+
+      .popup form {
+        padding: 10px 20px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .popup .imgholder {
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 0 5px rgba(235, 232, 232, 0.5);
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        margin-right: 50px;
+        margin-top: 15px;
+      }
+
+      .popup .imgholder .upload {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(213, 211, 211, 0.3);
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        cursor: pointer;
+        display: none;
+      }
+
+      .imgholder:hover .upload {
+        display: flex;
+      }
+
+      .imgholder .upload input {
+        display: none;
+      }
+
+      .imgholder .upload i {
+        color: #fff;
+        font-size: 35px;
+        font-weight: 300;
+      }
+
+      .imgholder .img {
+        width: 100%;
+        height: 100%;
+      }
+
+      form .inputFieldContainer .nameField,
+      form .inputFieldContainer .ageCityField,
+      form .inputFieldContainer .postSalary {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+      }
+
+      form .inputFieldContainer .nameField input,
+      form .inputFieldContainer .ageCityField input,
+      form .inputFieldContainer .postSalary input {
+        width: 200px;
+      }
+
+      .inputFieldContainer .form_control {
+        margin: 10px 0;
+      }
+
+      .inputFieldContainer .form_control label {
+        display: block;
+        color: var(--dark8);
+        margin-bottom: 5px;
+      }
+
+      .form_control input {
+        padding: 10px;
+        border: 1px solid var(--dark6);
+        color: var(--dark8);
+        background: var(--dark4);
+        border-radius: 5px;
+        outline: none;
+        transition: 0.3s;
+        width: 100%;
+      }
+
+      .form_control input:focus,
+      .form_control input:valid {
+        border-color: var(--dark7);
+      }
+
+      input::-webkit-inner-spin-button,
+      input::-webkit-outer-spin-button {
+        display: none;
+      }
+
+      .active {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+      }
+      .mobile-version {
+        display: none;
+      }
+
+      .lap-version {
+        display: block;
+      }
+
+      @media screen and (max-width: 1111px) {
+        .mobile-version {
+          display: block;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          align-self: center;
+        }
+        .mobile-version img {
+          width: 80%;
+        }
+        .mobile-version h1 {
+          color: rgb(250, 247, 247);
+          text-align: center;
+          font-size: 25px;
+          font-weight: 600;
+          width: 75%;
+        }
+        .lap-version {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mobile-version">
+      <img
+        src="https://img.freepik.com/premium-vector/device-error-concept_118813-3768.jpg?size=626&ext=jpg&ga=GA1.1.1801374035.1655350700&semt=ais"
+        alt=""
+      />
+      <h1>This website only support LapTop version</h1>
+    </div>
+
+    <div class="lap-version">
+      <div class="container">
+        <header>
+          <div class="filterEntries">
+            <div class="entries">
+              Show
+              <select name="" id="table_size">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+              entries
+            </div>
+
+            <div class="filter">
+              <label for="search">Search:</label>
+              <input
+                type="search"
+                name=""
+                id="search"
+                placeholder="Enter name/city/post"
+              />
+            </div>
+          </div>
+
+          <div class="addMemberBtn">
+            <button>Add New Employee Details</button>
+          </div>
+        </header>
+
+        <table>
+          <thead>
+            <tr class="heading">
+              <th>SL No</th>
+              <th>Picture</th>
+              <th>Full Name</th>
+              <th>Age</th>
+              <th>City</th>
+              <th>Position</th>
+              <th>Salary</th>
+              <th>Start Date</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody class="userInfo">
+            <!-- <tr><td class="empty" colspan="11" align="center">No data available in table</td></tr> -->
+            <!-- <tr>
+             
+                </tr> -->
+          </tbody>
+        </table>
+
+        <footer>
+          <span class="showEntries">Showing 1 to 10 of 50 entries</span>
+          <div class="pagination">
+            <button>Prev</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>Next</button>
+          </div>
+        </footer>
+      </div>
+
+      <!--Popup Form-->
+
+      <div class="dark_bg">
+        <div class="popup">
+          <header>
+            <h2 class="modalTitle">Fill the Form</h2>
+            <button class="closeBtn">&times;</button>
+          </header>
+
+          <div class="body">
+            <form action="#" id="myForm">
+              <div class="imgholder">
+                <label for="uploadimg" class="upload">
+                  <input type="file" name="" id="uploadimg" class="picture" />
+                  <i class="fa-solid fa-plus"></i>
+                </label>
+                <img
+                  src="./img/pic1.png"
+                  alt=""
+                  width="150"
+                  height="150"
+                  class="img"
+                />
+              </div>
+
+              <div class="inputFieldContainer">
+                <div class="nameField">
+                  <div class="form_control">
+                    <label for="fName">First Name:</label>
+                    <input type="text" name="" id="fName" required />
+                  </div>
+
+                  <div class="form_control">
+                    <label for="lName">Last Name:</label>
+                    <input type="text" name="" id="lName" required />
+                  </div>
+                </div>
+
+                <div class="ageCityField">
+                  <div class="form_control">
+                    <label for="age">Age:</label>
+                    <input type="number" name="" id="age" required />
+                  </div>
+
+                  <div class="form_control">
+                    <label for="city">City:</label>
+                    <input type="text" name="" id="city" required />
+                  </div>
+                </div>
+
+                <div class="postSalary">
+                  <div class="form_control">
+                    <label for="position">Position:</label>
+                    <input type="text" name="" id="position" required />
+                  </div>
+
+                  <div class="form_control">
+                    <label for="salary">Salary:</label>
+                    <input type="text" name="" id="salary" required />
+                  </div>
+                </div>
+
+                <div class="form_control">
+                  <label for="sDate">Start Date:</label>
+                  <input type="date" name="" id="sDate" required />
+                </div>
+
+                <div class="form_control">
+                  <label for="email">Email:</label>
+                  <input type="email" name="" id="email" required />
+                </div>
+
+                <div class="form_control">
+                  <label for="phone">Phone:</label>
+                  <input type="number" name="" id="phone" required />
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <footer class="popupFooter">
+            <button form="myForm" class="submitBtn">Submit</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
